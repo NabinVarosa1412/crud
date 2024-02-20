@@ -57,7 +57,10 @@ User.init(
     preferredContactMethod: {
       type: DataTypes.ENUM("email", "phone", "none"),
       defaultValue: "email",
+
       allowNull: true,
+
+      
     },
     // Add other fields as needed
   },

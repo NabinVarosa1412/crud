@@ -42,9 +42,9 @@ module.exports = {
         allowNull: true,
       },
       preferredContactMethod: {
-        type: Sequelize.ENUM("email", "phone", "none"),
-        defaultValue: "none",
+        type: Sequelize.STRING,
         allowNull: true,
+
       },
       createdAt: {
         type: Sequelize.DATE,
