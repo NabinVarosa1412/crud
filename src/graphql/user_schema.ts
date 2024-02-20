@@ -2,6 +2,12 @@
 import { gql } from 'apollo-server-express'
 
  const typeDefs = gql`
+   enum preferredContactMethod {
+         email
+         phone
+         none
+   }
+
     type User {
         id: ID!
         name: String!
@@ -12,7 +18,7 @@ import { gql } from 'apollo-server-express'
         nationality: String
         dateOfBirth: String
         educationBackground: String
-        preferredContactMethod: String
+        preferredContactMethod: preferredContactMethod
     }
 
     type Query {

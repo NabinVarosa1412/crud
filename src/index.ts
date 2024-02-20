@@ -15,24 +15,29 @@ import cors from 'cors';
  import resolvers from './graphql/resolvers';
 
 
-// make async function startserver
+//  async function startserver 
 const startServer = async () => {
 const app = express();
 const httpServer = http.createServer(app);
 
 app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
+
+ // connect the sequelize database
   sequelize.authenticate().then(() => {
   console.log('Database connected!');
 }).catch((err: Error) => {
   console.error('Error connecting to the database:', err.message);
 });
+
+// connect the apollo database
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 await server.start();
+
 app.use(
   '/graphql',
   cors<cors.CorsRequest>(),

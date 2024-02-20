@@ -42,7 +42,8 @@ module.exports = {
         allowNull: true,
       },
       preferredContactMethod: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("email", "phone", "none"),
+        defaultValue: "none",
         allowNull: true,
       },
       createdAt: {

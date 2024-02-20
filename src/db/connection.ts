@@ -8,7 +8,9 @@ const sequelize = new Sequelize({
     password: "root",
     host: "localhost",
     port: Number(process.env.DB_PORT),
-    models: [__dirname + '../models']
+    models: [__dirname + '../model']
+
+
 });
 
 export default sequelize;
